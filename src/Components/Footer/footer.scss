@@ -1,5 +1,5 @@
 @import "../../initial-styling/variables";
-.footer {
+.footer-top {
     background: rgba(0,47,52,.03);
     height: 190px;
     display: flex;
@@ -53,5 +53,120 @@
             line-height: 38px;
             margin: 0;
         }
+    }
+    .ft-app-details{
+
+         h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 15px;
+            color: $primary-color;
+        }
+                
+        ul.platform {
+            display: flex;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin: 0 5px 0 0;
+
+
+                input {
+                    width: 115px;
+                    height: 40px;
+                }
+          }
+        
+       
+    }
+}
+}
+
+.footer-bottom{
+    background-color: #ebeeef;
+    padding: 2.5rem 0 3.4rem;
+    border-top: 1px solid rgba(0,47,52,.2);
+
+    .widget {
+        h6{
+         color: $primary-color;   
+        font-size: 14px;
+        // text-align: center;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.25px;
+        }
+
+
+         ul {
+            margin: 0;
+            padding: 0;
+
+            li{
+                a {
+                    font-size: 13px;
+                    color: #002f34a3 !important;
+                    margin: 0 0 5px;
+                }
+            }
+
+        }
+
+        ul.ftr-social-icons {
+            display: flex;
+            padding: 0;
+            margin: 0 0 25px;
+
+             li {
+                margin: 0 20px 0 0;
+                a{
+                 svg {
+                    color: $primary-color;
+                    border: 1px solid $primary-color;
+                    height: 25px;
+                    width: 25px;
+                    padding: 5px;
+                    border-radius: 50%;
+                }
+            }
+           }
+        }
+
+        ul.platform {
+            display: flex;
+
+            li {
+                margin: 0 15px 0 0;
+
+
+                 input {
+                    width: 84px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+
+}
+
+
+.copy-right {
+    background: #002f34;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+     p {
+    padding: 6px 0;
+    margin: 0;
+    color: #fff;
+    text-align: right;
+    font-size: 13px;
+    font-weight: 600;
+    span{
+        font-weight: 400;
+    }
     }
 }
