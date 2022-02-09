@@ -1,0 +1,57 @@
+@import "../../initial-styling/variables";
+.footer {
+    background: rgba(0,47,52,.03);
+    height: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-img{
+        position: relative;
+        // &::after{
+        //     content: "";
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     background: url(../../assets/images/mobile.png) no-repeat; 
+        //     width: 100%;
+        //     height: 189px;
+        //     background-size: cover;
+
+        // }
+    }
+
+    .footer-content {
+        position: relative;
+        padding: 0 10px;
+         
+            
+        &::before{
+            content: "";
+            background: #ccc;
+            width: 2px;
+            height: 140px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+       
+
+        h4{
+            
+            font-size: 30px;
+            font-weight: 700;
+            color: $primary-color;
+            margin: 0 0 8px;
+            
+        } 
+
+
+        p{
+            font-size: 21px;
+            font-weight: 400;
+            color: #002F34;
+            line-height: 38px;
+            margin: 0;
+        }
+    }
+}

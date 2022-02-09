@@ -2,7 +2,7 @@
 import './App.scss';
 import Header from "./Components/Header"
 import CategoryDetails from './Components/CategoryDetail';
-// import Footer from "./Components/Footer"
+import Footer from "./Components/Footer"
 
 
 
@@ -14,6 +14,8 @@ function App() {
      <section className="banner">
        
      </section>
+
+     <Footer/>
 
     </div>
   );
