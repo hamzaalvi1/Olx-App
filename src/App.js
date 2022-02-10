@@ -4,6 +4,8 @@ import Header from "./Components/Header"
 import CategoryDetails from './Components/CategoryDetail';
 import Footer from "./Components/Footer"
 import Ads from "./Components/Ads"
+import Ad from "./Components/Ad"
+
 
 
 function App() {

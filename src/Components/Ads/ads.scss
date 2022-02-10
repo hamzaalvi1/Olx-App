@@ -1,5 +1,11 @@
 @import "../../initial-styling/variables";
 
+
+.ads{
+    .col-md-3{
+        padding-left: 0;
+    }
+}
 .ads h2 {
     font-size: 26px;
     font-weight: 400;
@@ -50,7 +56,7 @@
         }
 
         .adbottomDetail {
-            padding: 15px 0 0;
+            padding: 0 0 0;
 
 
             span {

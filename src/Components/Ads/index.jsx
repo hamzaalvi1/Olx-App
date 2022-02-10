@@ -141,7 +141,7 @@ const Ads = () => {
 
   return (
     <div className='ads'>
-     <Container fluid>
+     <Container>
          <Row className="align-items-center">
              <h2>Fresh Recomandations</h2>
               {AdList.map((ad,index)=>{
