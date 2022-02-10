@@ -3,7 +3,7 @@ import './App.scss';
 import Header from "./Components/Header"
 import CategoryDetails from './Components/CategoryDetail';
 import Footer from "./Components/Footer"
-
+import Ads from "./Components/Ads"
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
      <section className="banner">
        
      </section>
-
+      <Ads/>
      <Footer/>
 
     </div>

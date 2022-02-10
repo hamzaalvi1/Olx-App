@@ -1,0 +1,75 @@
+@import "../../initial-styling/variables";
+
+.ads h2 {
+    font-size: 26px;
+    font-weight: 400;
+    display: block;
+    font-size: 1.596rem;
+    color: #002f34;
+    margin: 0.8rem;
+}
+.adbox {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 2px solid rgba(0,47,52,.2);
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    margin: 10px 0;
+    
+    .adDetails {
+        padding: 10px;
+
+        .adtopDetail{
+          
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h4{
+                font-size: 16px;
+                font-weight: 400;
+                color: $primary-color;  
+            }
+
+             h3 {
+                font-size: 22px;
+                font-weight: 700;
+                font-family: "Roboto";
+                color: $primary-color;
+            }
+             svg {
+                font-size: 22px;
+                align-self: flex-start;
+                margin: 10px 0 0;
+            }
+        }
+
+        .adbottomDetail {
+            padding: 15px 0 0;
+
+
+            span {
+                font-size: 12px;
+                font-family: "Roboto";
+                color: #002f34bf;
+            }
+        }
+
+    } 
+    
+    .ad-image {
+        width: 100%;
+        height: 100%;
+        img{
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+
+        }
+    }
+}
