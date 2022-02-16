@@ -1,4 +1,4 @@
-@import "../../initial-styling/variables";
+@import  "../../assets/css/variables";
 
 .ad{
 
@@ -11,4 +11,147 @@
         width: 100%;
         overflow: hidden;
     }
+
+
+    .price-details {
+        background-color: #fff;
+        border: 1px solid rgba(0,47,52,.36);
+        border-radius: 4px;
+        padding: 1.1rem;
+        margin-top: 0.8rem;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        // flex-flow: column;
+        h2{
+            font-size: 30px;
+            font-weight: 700;
+            font-family: 'Roboto';
+            color: $primary-color;
+            padding: 0;
+            margin: 0;
+        }
+
+        p{
+            color: rgb(0 47 52 / 58%);
+            font-size: 17px;
+             font-weight: 400;
+        }
+
+
+        .price-location {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            span {
+                font-size: 12px;
+                font-family: 'Roboto';
+                color: rgb(0 47 52 / 58%);
+
+            }
+
+            
+            
+        }
+        .share-icons{
+            span {
+                margin: 0 11px 0 0;
+                svg{
+                    font-size: 18px;
+                    fill: $primary-color;
+                    cursor: pointer;
+                }
+
+            }
+            }
+    }
+
+    .seller-description{
+        background-color: #fff;
+        border: 1px solid rgba(0,47,52,.36);
+        border-radius: 4px;
+        padding: 1.1rem;
+        margin-top: 0.8rem;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        flex-flow: column;
+
+        h3{
+            font-size: 22px;
+            font-weight: 400;
+            font-family: 'Roboto';
+            color: $primary-color;
+            padding: 0;
+            margin: 0;
+        }
+        .seller-profile {
+            padding: 10px 0;
+        }
+
+        .seller-details{
+            .seller-personalInfo img {
+                width: 20px;
+                transform: rotate(270deg);
+                margin: 0 0 0 20px;
+            }
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span{
+                    width: 80px;
+                    margin: 0 13px 0 0;
+                
+                }
+
+                .seller-prs {
+                    flex-flow: column;
+                    align-items: initial;
+
+                    h4 {
+                        padding: 0;
+                        margin: 0;
+                        text-align: left;
+                        display: block;
+                        font-size: 15px;
+                        font-weight: 700;
+                    }
+                    p{
+                        font-size: 14px;
+                        margin: 0;
+                        padding: 5px 0;
+                        color: rgb(0 47 52 / 58%);
+
+                    }
+                }
+            }
+        }
+        a.chat {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background: $primary-color;
+            margin: 10px 0;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a.chat + a {
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            margin: 4px 0;
+            color: $primary-color;
+
+        }
+    }
 }
+
+
