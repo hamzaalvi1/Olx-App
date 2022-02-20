@@ -8,8 +8,11 @@ import AppGallery from "../../assets/images/app-gallery.svg"
 import {FaFacebookF,FaTwitter,FaYoutube,FaInstagram} from "react-icons/fa"
 
 const Footer = () => {
+  
   return (
-  <div className="footer">  
+   
+   
+  <footer className="footer">  
   <div className="footer-top">
     <Container>
      <Row className="align-items-center">
@@ -142,7 +145,8 @@ const Footer = () => {
       </Row>
     </Container>
   </div>
-  </div>
+  </footer>
+ 
   )
 };
 

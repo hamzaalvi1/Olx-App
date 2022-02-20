@@ -159,6 +159,22 @@
 
 
 }
+.header-post{
+
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+    padding: 5px 0;
+
+
+    svg.vsArrow {
+      font-size: 28px;
+      font-weight: bold;
+      color: $primary-color;
+      cursor: pointer;
+      margin: 0 8px 0 0;
+  }
+}
 
 @media (max-width: 1280px){
   header.main_header .container {

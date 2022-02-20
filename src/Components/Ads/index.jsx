@@ -3,11 +3,11 @@ import "./ads.scss"
 import {Container,Row,Col} from "react-bootstrap"
 import AdImage from '../../assets/images/cat-image.jpg'
 import {BsHeart} from "react-icons/bs"
+import {useNavigate} from "react-router-dom"
 
 const Ads = () => {
-   
-    // const [adList,setAdList] = useState([])
-   
+    const navigate = useNavigate()
+       
     const AdList = [
         {
          adImage: AdImage,
@@ -146,8 +146,8 @@ const Ads = () => {
              <h2>Fresh Recomandations</h2>
               {AdList.map((ad,index)=>{
                   return(
-                <Col md={3}> 
-                <div className="adbox" key={index}>
+                <Col md={3}  key={index}> 
+                <div className="adbox" onClick={()=> navigate(`/item/${index}`)}>
                     <div className="ad-image">
                         <img src={ad.adImage} alt="ad-image" />
                     </div>

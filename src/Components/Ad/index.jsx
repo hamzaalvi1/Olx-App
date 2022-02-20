@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import "./ad.scss"
 import { Container,Row,Col} from "react-bootstrap"
 import {BsHeart,BsShare,BsTelephone} from "react-icons/bs"
@@ -10,6 +10,10 @@ import { Carousel } from 'react-responsive-carousel';
 import CatImg from "../../assets/images/cat-image.jpg"
 
 const AD = () => {
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <div className="ad">
       <Container>

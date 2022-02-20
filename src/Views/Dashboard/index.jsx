@@ -1,7 +1,6 @@
 import React from 'react'
 import CategoryDetails from "../../Components/CategoryDetail"
 import Ads from "../../Components/Ads"
-import Ad from "../../Components/Ad"
 
 
 const Home = () => {
@@ -11,7 +10,7 @@ const Home = () => {
      <section className="banner">
        
      </section>
-      <Ad/>
+      <Ads/>
 
     </div>
   )
