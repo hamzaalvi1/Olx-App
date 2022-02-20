@@ -1,15 +1,82 @@
 @import  "../../assets/css/variables";
 
 .ad{
+    padding: 25px 0;
 
     .adSlider{
         background-color: #fff;
         border: 1px solid rgba(0,47,52,.36);
         border-radius: 4px;
-        padding: 1.6rem;
+        padding: 0;
          margin-top: 0.8rem;
         width: 100%;
         overflow: hidden;
+        .carousel .thumbs{
+            margin: 0;
+            padding: 0;
+        }
+    }
+    .ad-related-details{
+        background-color: #fff;
+        border: 1px solid rgba(0, 47, 52, 0.36);
+        border-radius: 4px;
+        padding: 1.1rem;
+        margin-top: 0.8rem;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        
+.detail-top {
+    padding: 10px 0 0;
+    border-bottom: 1px solid #002f3457;
+}
+
+        .detail-panel {
+            width: 100%;
+
+
+            h4 {
+                font-size: 18px;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-family: "Roboto";
+                letter-spacing: 0.25px;
+                color: $primary-color;
+            }
+            .rd-data {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 0 20px;
+                p {
+                    margin: 0;
+                    font-size: 15px;
+                    color: $primary-color;
+                }
+            }
+        }
+
+
+        
+.description-panel {
+    padding: 10px 0;
+    h3{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Roboto";
+    letter-spacing: 0.25px;
+    color: #002F34;
+    }
+   p {
+        font-size: 14px;
+        line-height: 25px;
+        color: $primary-color;
+    }
+}
     }
 
 
@@ -150,6 +217,65 @@
             margin: 4px 0;
             color: $primary-color;
 
+        }
+    }
+
+    .posted-in-location{
+        background-color: #fff;
+        border: 1px solid rgba(0,47,52,.36);
+        border-radius: 4px;
+        margin-top: 25px;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: self-start;
+        flex-flow: column;
+        padding: 20px;
+
+        .content {
+            h2{
+                font-size: 18px;
+                font-weight: 700;
+                font-family: "Roboto";
+                color: #002F34;
+                padding: 0;
+                margin: 0 0 10px 
+            }
+            p {
+                font-size: 12px;
+                font-family: "Roboto";
+                color: rgba(0, 47, 52, 0.58);
+                margin: 0 0 7px;
+            }
+        }
+        .google-map {
+            width: 100%;
+            width: 100%;
+            cursor: pointer;
+            /* margin-top: 1rem; */
+            border-radius: 0.5rem;
+            -webkit-box-shadow: 0 0.2rem 0.2rem 0 rgb(0 0 0 / 15%);
+            box-shadow: 0 0.2rem 0.2rem 0 rgb(0 0 0 / 15%);
+
+            .locate-detail {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+
+               
+            }
+            .locate-detail p {
+                margin: 0;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-family: 'Roboto';
+                color: #002F34;
+                padding: 0 0 4px;
+
+            }
         }
     }
 }
