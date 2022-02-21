@@ -7,14 +7,17 @@ import {
 import Dashboard from "../../Views/Dashboard"
 import Ad from "../Ad/"
 import Post from '../../Views/AdPosts';
+import PostForm from '../../Views/PostForm';
 
 const RouteConfig = () => {
   return (
     
       <Routes>
       <Route index element={<Dashboard />} />
+      <Route  path="/item/:adId" element={<Ad/>} />
       <Route path="/post" element={<Post />} />
-       <Route  path="/item/:adId" element={<Ad/>} />
+       <Route  path="/attributes" element={<PostForm/>} />
+
       </Routes>
     
   )

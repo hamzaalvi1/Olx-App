@@ -17,6 +17,7 @@ function App() {
      <Header/>
      <RouteConfig/>
      {location.pathname  !== "/post"  ? <Footer/> : null}
+
     
     </div>
   );

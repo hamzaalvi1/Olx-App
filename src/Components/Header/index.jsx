@@ -17,7 +17,7 @@ const Header = () => {
     const location = useLocation()
 
     const checkSubMenu = 
-  (location.pathname !== "/post" ? 
+  (location.pathname !== "/post"  ? 
     <ul className="sub-menu">
     <li>
       <a href="">
@@ -37,7 +37,7 @@ const Header = () => {
    </ul> : null )
 
    const checkHeaderBottom = (
-   location.pathname !== "/post" ?
+   location.pathname !== "/post"  ?
    <div className="header-bottom">
                     <Row>
                        <Col md={3}>
@@ -85,7 +85,7 @@ const Header = () => {
                   <Row>   
                  <Col md={6} className="p-0">
                      <div className="header-top-wrapper">
-                     {location.pathname === "/post" ?  <VscArrowLeft className="vsArrow" onClick={()=>navigate("/")}/> : null }
+                     {location.pathname === "/post" || location.pathname === "/attributes" ?  <VscArrowLeft className="vsArrow" onClick={()=>navigate("/")}/> : null }
                      <div className="logo">
                          {location.pathname !== "/post" ?
                          <Link to="/"><img src={Logo} alt="logo"/></Link> :

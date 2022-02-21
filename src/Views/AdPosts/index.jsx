@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {BsChevronRight} from "react-icons/bs"
 import {Container,Row,Col} from "react-bootstrap"
 import "./adpost.scss"
+import { useNavigate } from 'react-router-dom'
 import AnimalIcon from "../../assets/images/post/icons/animals.svg"
 import BikeIcon from "../../assets/images/post/icons/bikes.svg"
 import BusinessIcon from "../../assets/images/post/icons/business.svg"
@@ -26,6 +27,7 @@ import VehiclesIcon from "../../assets/images/post/icons/vehicles.svg"
 
 const AdPost = () => {
   const [categoryIndex,setCategoryIndex] = useState(null)
+  const navigate = useNavigate()
   const categoryList  = [
     {
       icon: AnimalIcon,
@@ -136,7 +138,7 @@ const AdPost = () => {
                     <ul className='nested-categories'>
                       {categoryList[categoryIndex]?.subCategory.map((sbcategory,index)=>{
                          return(
-                          <li key={index}><p>{sbcategory}</p></li>
+                          <li key={index} onClick={()=>navigate("/attributes")}><p>{sbcategory}</p></li>
                         )
                       })}
                      </ul>
