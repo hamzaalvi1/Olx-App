@@ -5,31 +5,26 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, doc, addDoc, setDoc } from "firebase/firestore"; 
 
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDHKKz3Li-oq7sz2tb2GluHiLE0U4CO0HE",
-//   authDomain: "olx-app-7196e.firebaseapp.com",
-//   projectId: "olx-app-7196e",
-//   storageBucket: "olx-app-7196e.appspot.com",
-//   messagingSenderId: "918097048859",
-//   appId: "1:918097048859:web:c7e6b2656118aa24648fbe"
-// };
 
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBMSKZIwVpVeW9V2zgIb3B9waUyz2Y25_0",
-  authDomain: "olx-clone-61e54.firebaseapp.com",
-  projectId: "olx-clone-61e54",
-  storageBucket: "olx-clone-61e54.appspot.com",
-  messagingSenderId: "12208341771",
-  appId: "1:12208341771:web:71e809ce345a0842c5580e"
+  apiKey: "AIzaSyCjs1d0P82zcoeL2b40eyPXoSCPx-x1S4Y",
+  authDomain: "olx-replica-app-561e5.firebaseapp.com",
+  projectId: "olx-replica-app-561e5",
+  storageBucket: "olx-replica-app-561e5.appspot.com",
+  messagingSenderId: "903564159882",
+  appId: "1:903564159882:web:eb6f23c1cc3d8014253673"
 };
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth()
 const db = getFirestore()
 
 // collection ref
-const colRef = collection(db, 'adds')
+const colRef = collection(db, 'adPostDetails')
 
 
 
