@@ -5,12 +5,12 @@ import { MdAddAPhoto } from "react-icons/md";
 import ProfileImg from "../../assets/images/profile.png";
 import {setPostForm} from "../../Components/Config/firebase"
 
-const PostForm = () => {
+const PostForm =  () => {
   const [postDetails,setPostDetails] = useState({adTitle:"",adDescription:"",adPrice:"",adState:"",username:"",phnNumber:""})
-  const submitPostDetails = async (evt)=>{
+  const submitPostDetails =  (evt)=>{
     evt.preventDefault()
     const randomID = Math.floor(Math.random() * 10000)
-    setPostForm(postDetails,randomID) 
+    setPostForm(postDetails) 
     console.log("work")
 
 
