@@ -15,6 +15,11 @@
             margin: 0;
             padding: 0;
         }
+        .carousel .slide img {
+          
+            height: 700px;
+            object-fit: contain;
+        }
     }
     .ad-related-details{
         background-color: #fff;

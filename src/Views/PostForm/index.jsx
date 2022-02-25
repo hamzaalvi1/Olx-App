@@ -6,16 +6,24 @@ import ProfileImg from "../../assets/images/profile.png";
 import {setPostForm} from "../../Components/Config/firebase"
 
 const PostForm =  () => {
-  const [postDetails,setPostDetails] = useState({adTitle:"",adDescription:"",adPrice:"",adState:"",username:"",phnNumber:""})
+  const [postDetails,setPostDetails] = useState({adTitle:"",adDescription:"",adPrice:"",adState:"",username:"",phnNumber:"",photo1:"",photo2:"",photo3:"",photo4:""})
   const submitPostDetails =  (evt)=>{
     evt.preventDefault()
     const randomID = Math.floor(Math.random() * 10000)
     setPostForm(postDetails) 
-    console.log("work")
+    setPostDetails({adTitle:"",adDescription:"",adPrice:"",adState: "",username: "",phnNumber:"",photo1:"",photo2:"",photo3:"",photo4:""})
 
 
   }
-  
+  const photoHandler =(evt)=>{
+    evt.persist();
+    let file = evt.target.files[0];   
+    let reader = new FileReader();
+    reader.onloadend = ()=>{
+      setPostDetails({...postDetails,[evt.target.name]:reader.result})
+    }    
+   reader.readAsDataURL(file)
+  }
   return (
     <div className="postForm">
       <Container>
@@ -70,6 +78,7 @@ const PostForm =  () => {
                           id="upload-button-1"
                           type="file"
                           name="photo1"
+                          onChange = {(evt)=>photoHandler(evt)}
                         />
                         <MdAddAPhoto aria-label="upload picture" />
                       </label>
@@ -79,6 +88,7 @@ const PostForm =  () => {
                           id="upload-button-2"
                           type="file"
                           name="photo2"
+                          onChange = {(evt)=>photoHandler(evt)}
                         />
                         <MdAddAPhoto aria-label="upload picture" />
                       </label>
@@ -88,6 +98,7 @@ const PostForm =  () => {
                           id="upload-button-3"
                           type="file"
                           name="photo3"
+                          onChange = {(evt)=>photoHandler(evt)}
                         />
                         <MdAddAPhoto aria-label="upload picture" />
                       </label>
@@ -97,6 +108,7 @@ const PostForm =  () => {
                           id="upload-button-4"
                           type="file"
                           name="photo4"
+                          onChange = {(evt)=>photoHandler(evt)}
                         />
                         <MdAddAPhoto aria-label="upload picture" />
                       </label>

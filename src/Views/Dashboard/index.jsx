@@ -3,6 +3,7 @@ import CategoryDetails from "../../Components/CategoryDetail"
 import Ads from "../../Components/Ads"
 
 
+
 const Home = () => {
   return (
     <div className='dashboard'>

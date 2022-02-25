@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import "./ad.scss"
 import { Container,Row,Col} from "react-bootstrap"
 import {BsHeart,BsShare,BsTelephone} from "react-icons/bs"
@@ -8,12 +8,20 @@ import {MdOutlineArrowForwardIos} from "react-icons/md"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import CatImg from "../../assets/images/cat-image.jpg"
+import {getSingleAd} from "../Config/firebase"
+import { useParams } from 'react-router-dom'
 
 const AD = () => {
-
+  const params = useParams()
+  const [adData,setAdData] = useState(null)
   useEffect(()=>{
     window.scrollTo(0,0)
   },[])
+  useEffect( async ()=>{
+    const getSingleAdState = await getSingleAd(params.adId)
+    setAdData(getSingleAdState)
+  },[])
+
   return (
     <div className="ad">
       <Container>
@@ -22,13 +30,16 @@ const AD = () => {
                <div className="adSlider">
                <Carousel>
                 <div>
-                    <img src={CatImg} />
+                    <img src={adData?.photo1} />
                 </div>
                 <div>
-                    <img src={CatImg} />
+                    <img src={adData?.photo2} />
                 </div>
                 <div>
-                    <img src={CatImg} />
+                    <img src={adData?.photo3} />
+                </div>
+                <div>
+                    <img src={adData?.photo4} />
                 </div>
             </Carousel>
                    
@@ -43,7 +54,7 @@ const AD = () => {
                      <Col md={6}>
                        <div className="rd-data">
                           <p>Price</p>
-                           <p>Rs 37,000</p>
+                           <p>{adData?.adPrice}</p>
                        </div>
                      </Col>
                      <Col md={6}>
@@ -55,19 +66,19 @@ const AD = () => {
                      <Col md={6}>
                        <div className="rd-data">
                           <p>Make</p>
-                           <p>Apple Iphone</p>
+                           <p>{adData?.adTitle}</p>
                        </div>
                      </Col>
                    </Row>
                    </div>
                    <div className="description-panel">
                      <h3>Description</h3>
-                     <p>Condition 10 / 10 <br/>
-                      64gb <br/>
+                     <p>{adData?.adDescription}<br/>
+                      {/* 64gb <br/>
                       in original Condition <br/>
                       never open and repair <br/>
                       water proof <br/>
-                      no fault <br/>
+                      no fault <br/> */}
 
 
                      </p>
@@ -79,11 +90,11 @@ const AD = () => {
                <div className="right-sidebar">
                  <div className="price-details">
                    <div className="price=left-detail">
-                       <h2>Rs 37,999</h2>
-                        <p>Iphone 8 64gb Pta approved water </p>
+                       <h2>{adData?.adPrice}</h2>
+                        <p>{adData?.adTitle} </p>
                         <div className="price-location">
                    <span>
-                     Saddar,Karachi
+                    {adData?.adState }
                    </span>
                    <span>
                      21 hours ago
@@ -112,7 +123,7 @@ const AD = () => {
                        </span>
                         <div className="seller-personalInfo">
                         <div className='seller-prs'> 
-                           <h4>Tech Zone</h4>
+                           <h4>{adData?.username}</h4>
                            <p>Member since June 2019</p>
                          </div>
                           <img src={ArrowDown} alt="arrow-left" />
@@ -121,7 +132,7 @@ const AD = () => {
                    </div>
                  </div>
                  <a href="#" className="chat">Chat with Seller</a>
-                 <a href="tel:0000000"><BsTelephone/> +9230000000</a>
+                 <a href="tel:0000000"><BsTelephone/> {adData?.phnNumber}</a>
                </div>
 
                <div className="posted-in-location">

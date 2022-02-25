@@ -1,155 +1,33 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import "./ads.scss"
 import {Container,Row,Col} from "react-bootstrap"
 import AdImage from '../../assets/images/cat-image.jpg'
 import {BsHeart} from "react-icons/bs"
 import {useNavigate} from "react-router-dom"
+import {getAds} from "../Config/firebase"
+
 
 const Ads = () => {
     const navigate = useNavigate()
+    const [ads, setAds] = useState([])
+
        
-    const AdList = [
-        {
-         adImage: AdImage,
-         adTitle: "Persian Cat For Sale",
-         adPrice: "53,500",
-         adLocation: "DHA Phase 1, Lahore",
-         adTime: "3 Weeks ago"
-
-        },
-        {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-           {
-            adImage: AdImage,
-            adTitle: "Persian Cat For Sale",
-            adPrice: "53,500",
-            adLocation: "DHA Phase 1, Lahore",
-            adTime: "3 Weeks ago"
-   
-           },
-    ]
-
+  
+    useEffect(async () => {
+        const tempAds = await getAds()
+        setAds(tempAds)
+      }, [])
   return (
     <div className='ads'>
      <Container>
          <Row className="align-items-center">
              <h2>Fresh Recomandations</h2>
-              {AdList.map((ad,index)=>{
+              {ads.map((ad,index)=>{
                   return(
-                <Col md={3}  key={index}> 
-                <div className="adbox" onClick={()=> navigate(`/item/${index}`)}>
+                <Col md={3}  key={ad.id}> 
+                <div className="adbox" onClick={()=> navigate(`/item/${ad.id}`)}>
                     <div className="ad-image">
-                        <img src={ad.adImage} alt="ad-image" />
+                        <img src={ad.photo1} alt="ad-image" />
                     </div>
                     <div className="adDetails">
                        <div className="adtopDetail">
@@ -161,7 +39,7 @@ const Ads = () => {
                        </div>
 
                        <div className="adbottomDetail">
-                           <span>{ad.adLocation} </span> <span>{ad.adTime}</span>
+                           <span>{ad.adState },Pakistan </span> 
                              
 
                        </div>

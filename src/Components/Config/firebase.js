@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, collection, doc, addDoc, setDoc } from "firebase/firestore"; 
+import { getFirestore, collection, doc, addDoc, setDoc ,getDocs,getDoc} from "firebase/firestore"; 
 
 
 
@@ -42,4 +42,21 @@ function setPostForm(postData) {
   })
 }
 
-export {setPostForm}
+async function getAds() {
+  const querySnapshot = await getDocs(collection(db, "adPostDetails"))
+  const ads = []
+  querySnapshot.forEach((doc) => {
+    ads.push({ ...doc.data(), id: doc.id })
+  })
+  return ads
+}
+
+const getSingleAd = async  (id) =>{
+  const docRef = doc(db,"adPostDetails",id)
+   
+  const adResponse = await getDoc(docRef)
+
+  return adResponse.data()
+}
+
+export {setPostForm,getAds,getSingleAd}
