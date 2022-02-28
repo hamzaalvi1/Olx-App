@@ -15,7 +15,7 @@ function App() {
      
      <Header/>
      <RouteConfig/>
-     {location.pathname  !== "/post"  ? <Footer/> : null}
+     {location.pathname  === "/post" || location.pathname === "/attributes"  ? null : <Footer/>}
 
     
     </div>

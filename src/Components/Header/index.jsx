@@ -17,7 +17,8 @@ const Header = () => {
     const location = useLocation()
 
     const checkSubMenu = 
-  (location.pathname !== "/post"  ? 
+  (location.pathname === "/post" || location.pathname === "/attributes"  ? 
+    null : 
     <ul className="sub-menu">
     <li>
       <a href="">
@@ -34,10 +35,11 @@ const Header = () => {
         <svg xmlns="http://www.w3.org/2000/svg"  height="24" viewBox="0 0 73 20" alt="OLX Property" ><path d="M17.42 17.72H2.5V16.7h.4V2.5h8.47v14.21h5.04v-8.7l-4.03-1.35V5.6l5.04 1.68v9.43h.4v1h-.4zM3.92 16.7h6.44V3.51H3.91v13.2zm10.31-2.94v-.81h.82v.81h-.82zm-1.63 0v-.81h.82v.81h-.82zm-4.88 0v-.81h1.63v.81H7.72zm-2.45 0v-.81H6.9v.81H5.27zm8.96-2.44v-.81h.82v.81h-.82zm-1.63 0v-.81h.82v.81h-.82zm-4.88 0v-.81h1.63v.81H7.72zm-2.45 0v-.81H6.9v.81H5.27zm8.96-1.63V8.9h.82v.81h-.82zm-1.63 0V8.9h.82v.81h-.82zm-4.88 0V8.9h1.63v.81H7.72zm-2.45 0V8.9H6.9v.81H5.27zm2.45-2.44v-.82h1.63v.82H7.7zm-2.45 0v-.82H6.9v.82H5.27zm2.45-1.63v-.81h1.63v.8H7.7zm-2.45 0v-.81H6.9v.8H5.27zm19.87 4.1V7.46h1.26c.89 0 1.29.42 1.29 1.14 0 .7-.4 1.14-1.29 1.14h-1.26zm3.72-1.13c0-1.12-.81-2.06-2.46-2.06H24v6.95h1.14v-2.83h1.26c1.81 0 2.46-1.07 2.46-2.06zm4.78.02c0 .69-.4 1.18-1.3 1.18H31.1V7.46h1.26c.89 0 1.29.45 1.29 1.15zm-3.7-2.08v6.95h1.15V10.7h.87l1.6 2.79h1.36L33.2 10.6a1.98 1.98 0 0 0 1.6-1.98c0-1.13-.8-2.08-2.45-2.08h-2.4zM43 10a3.46 3.46 0 0 0-3.55-3.55A3.48 3.48 0 0 0 35.89 10a3.48 3.48 0 0 0 3.55 3.56A3.47 3.47 0 0 0 42.99 10zm-5.93 0c0-1.57 1-2.55 2.38-2.55s2.38.98 2.38 2.55c0 1.57-1 2.57-2.38 2.57s-2.38-1-2.38-2.57zm8.19-.26V7.47h1.26c.89 0 1.29.42 1.29 1.14 0 .7-.4 1.13-1.3 1.13h-1.25zm3.72-1.13c0-1.13-.81-2.07-2.46-2.07h-2.4v6.95h1.14v-2.83h1.26c1.8 0 2.46-1.07 2.46-2.06zm4.92-2.08h-3.84v6.96h3.84v-.94h-2.7v-2.13h2.4V9.5h-2.4V7.46h2.7v-.93zM59 8.6c0 .7-.4 1.19-1.3 1.19h-1.25V7.46h1.26c.89 0 1.29.45 1.29 1.15zm-3.7-2.07v6.95h1.15V10.7h.87l1.6 2.79h1.36l-1.72-2.89a1.98 1.98 0 0 0 1.6-1.98c0-1.13-.8-2.08-2.45-2.08h-2.4zm5.97.93h1.86v6.01h1.14V7.46h1.85v-.93h-4.85v.93zm7.71 3.5v2.51h1.14v-2.52l2.3-4.43h-1.26l-1.6 3.42-1.62-3.41h-1.27l2.31 4.42z"></path></svg> 
         </a>
     </li>
-   </ul> : null )
+   </ul> )
 
    const checkHeaderBottom = (
-   location.pathname !== "/post"  ?
+   location.pathname === "/post" || location.pathname === "/attributes"  ?
+   null :
    <div className="header-bottom">
                     <Row>
                        <Col md={3}>
@@ -73,12 +75,12 @@ const Header = () => {
                        
                        </Col>  
                     </Row> 
-    </div>:null
+    </div>
    )
 
   
   return (
-     <header className={location.pathname !== "/post" ? 'main_header' : "main_header header-post"}>
+     <header className={location.pathname === "/post" || location.pathname === "/attributes" ? 'main_header header-post' : "main_header"}>
          <Container>
              <Row className="align-items-center">
                  <div className="header-top">
@@ -87,9 +89,10 @@ const Header = () => {
                      <div className="header-top-wrapper">
                      {location.pathname === "/post" || location.pathname === "/attributes" ?  <VscArrowLeft className="vsArrow" onClick={()=>navigate("/")}/> : null }
                      <div className="logo">
-                         {location.pathname !== "/post" ?
-                         <Link to="/"><img src={Logo} alt="logo"/></Link> :
-                         <Link to="/"><img src={PostLogo} alt="logo"/></Link> 
+                         {location.pathname === "/post" || location.pathname === "/attributes" ?
+                         <Link to="/"><img src={PostLogo} alt="logo"/></Link> :
+                         
+                         <Link to="/"><img src={Logo} alt="logo"/></Link> 
                          }
                      </div>
                          {checkSubMenu}

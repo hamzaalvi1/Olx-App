@@ -4,9 +4,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import { MdAddAPhoto } from "react-icons/md";
 import ProfileImg from "../../assets/images/profile.png";
 import {setPostForm} from "../../Components/Config/firebase"
+import uploadImage from "../../assets/images/upload-images.png"
 
 const PostForm =  () => {
   const [postDetails,setPostDetails] = useState({adTitle:"",adDescription:"",adPrice:"",adState:"",username:"",phnNumber:"",photo1:"",photo2:"",photo3:"",photo4:""})
+  const [uploadImgPreview,setUploadImagePreview] = useState(
+    {
+     uploadImg1: uploadImage,
+     uploadImg2:uploadImage,
+     uploadImg3:uploadImage,
+     uploadImg4:uploadImage,
+     uploadImg5:uploadImage,
+     uploadImg6:uploadImage,
+     uploadImg7:uploadImage,
+    }
+    )
   const submitPostDetails =  (evt)=>{
     evt.preventDefault()
     const randomID = Math.floor(Math.random() * 10000)
@@ -15,14 +27,21 @@ const PostForm =  () => {
 
 
   }
-  const photoHandler =(evt)=>{
+  const photoHandler =(evt,idx)=>{
     evt.persist();
     let file = evt.target.files[0];   
     let reader = new FileReader();
-    reader.onloadend = ()=>{
-      setPostDetails({...postDetails,[evt.target.name]:reader.result})
-    }    
-   reader.readAsDataURL(file)
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+        setUploadImagePreview({...uploadImgPreview,[`uploadImg${idx}`]: reader.result})
+      }
+    }
+    reader.readAsDataURL(file)
+  
+    //   reader.onloadend = ()=>{
+    //     setPostDetails({...postDetails,[evt.target.name]:reader.result})
+    //   }    
+    //  reader.readAsDataURL(file)
   }
   return (
     <div className="postForm">
@@ -78,9 +97,10 @@ const PostForm =  () => {
                           id="upload-button-1"
                           type="file"
                           name="photo1"
-                          onChange = {(evt)=>photoHandler(evt)}
+                          onChange = {(evt)=>photoHandler(evt,1)}
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg1} alt="uploadImg" aria-label="upload picture" />
                       </label>
                       <label htmlFor="upload-button-2">
                         <input
@@ -88,9 +108,11 @@ const PostForm =  () => {
                           id="upload-button-2"
                           type="file"
                           name="photo2"
-                          onChange = {(evt)=>photoHandler(evt)}
+                          onChange = {(evt)=>photoHandler(evt,2)}
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg2} alt="uploadImg" aria-label="upload picture" />
+
                       </label>
                       <label htmlFor="upload-button-3">
                         <input
@@ -98,9 +120,11 @@ const PostForm =  () => {
                           id="upload-button-3"
                           type="file"
                           name="photo3"
-                          onChange = {(evt)=>photoHandler(evt)}
+                          onChange = {(evt)=>photoHandler(evt,3)}
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg3} alt="uploadImg" aria-label="upload picture" />
+
                       </label>
                       <label htmlFor="upload-button-4">
                         <input
@@ -108,9 +132,11 @@ const PostForm =  () => {
                           id="upload-button-4"
                           type="file"
                           name="photo4"
-                          onChange = {(evt)=>photoHandler(evt)}
+                          onChange = {(evt)=>photoHandler(evt,4)}
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg4} alt="uploadImg" aria-label="upload picture" />
+
                       </label>
                       <label htmlFor="upload-button-5">
                         <input
@@ -118,8 +144,12 @@ const PostForm =  () => {
                           id="upload-button-5"
                           type="file"
                           name="photo5"
+                          onChange = {(evt)=>photoHandler(evt,5)}
+
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        <img className="upload" src={uploadImgPreview.uploadImg5} alt="uploadImg" aria-label="upload picture" />
+
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
                       </label>
                       <label htmlFor="upload-button-6">
                         <input
@@ -127,8 +157,12 @@ const PostForm =  () => {
                           id="upload-button-6"
                           type="file"
                           name="photo6"
+                          onChange = {(evt)=>photoHandler(evt,6)}
+
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg6} alt="uploadImg" aria-label="upload picture" />
+
                       </label>
                       <label htmlFor="upload-button-7">
                         <input
@@ -136,8 +170,12 @@ const PostForm =  () => {
                           id="upload-button-7"
                           type="file"
                           name="photo7"
+                          onChange = {(evt)=>photoHandler(evt,7)}
+
                         />
-                        <MdAddAPhoto aria-label="upload picture" />
+                        {/* <MdAddAPhoto aria-label="upload picture" /> */}
+                        <img className="upload" src={uploadImgPreview.uploadImg7} alt="uploadImg" aria-label="upload picture" />
+
                       </label>
                     </div>
                   </div>
