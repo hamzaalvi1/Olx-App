@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, doc, addDoc, setDoc ,getDocs,getDoc} from "firebase/firestore"; 
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
 
 
 
@@ -22,6 +23,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth()
 const db = getFirestore()
+const storage = getStorage()
 
 // collection ref
 const colRef = collection(db, 'adPostDetails')
@@ -59,4 +61,10 @@ const getSingleAd = async  (id) =>{
   return adResponse.data()
 }
 
-export {setPostForm,getAds,getSingleAd}
+async function uploadImageToStorage(file) {
+  const storageRef = ref(storage, `/ads/${file.name}`);
+  const response = await uploadBytes(storageRef, file)
+  return await getDownloadURL(response.ref)
+}
+
+export {setPostForm,getAds,getSingleAd,uploadImageToStorage}

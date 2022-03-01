@@ -3,8 +3,9 @@ import "./postform.scss";
 import { Container, Row, Col } from "react-bootstrap";
 import { MdAddAPhoto } from "react-icons/md";
 import ProfileImg from "../../assets/images/profile.png";
-import {setPostForm} from "../../Components/Config/firebase"
+import {setPostForm,uploadImageToStorage} from "../../Components/Config/firebase"
 import uploadImage from "../../assets/images/upload-images.png"
+import swal from 'sweetalert'
 
 const PostForm =  () => {
   const [postDetails,setPostDetails] = useState({adTitle:"",adDescription:"",adPrice:"",adState:"",username:"",phnNumber:"",photo1:"",photo2:"",photo3:"",photo4:""})
@@ -27,7 +28,7 @@ const PostForm =  () => {
 
 
   }
-  const photoHandler =(evt,idx)=>{
+  const photoHandler = async(evt,idx)=>{
     evt.persist();
     let file = evt.target.files[0];   
     let reader = new FileReader();
@@ -36,7 +37,19 @@ const PostForm =  () => {
         setUploadImagePreview({...uploadImgPreview,[`uploadImg${idx}`]: reader.result})
       }
     }
+
     reader.readAsDataURL(file)
+  try{
+    const imgUrl = await uploadImageToStorage(file)
+    setPostDetails({...postDetails,[evt.target.name]:imgUrl})
+  
+  }
+  catch(e){
+   swal({title: `"${e.message}`,
+   icon: "warning",
+   buttons: true,
+   dangerMode: true,})
+  }
   
     //   reader.onloadend = ()=>{
     //     setPostDetails({...postDetails,[evt.target.name]:reader.result})
