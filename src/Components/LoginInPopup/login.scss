@@ -1,0 +1,118 @@
+.popup{
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            background: rgba(34,34,34,.9);
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+      
+            .popupbox{
+                padding: 5px 10px;
+                position: absolute;
+                top: 50%;
+                bottom: auto;
+                left: 50%;
+                right: auto;
+                transform: translate(-50%, -50%);
+                width: 85%;
+                max-width: 26rem;
+                max-height: 85%;
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                background-color: #fff;
+                .close-ico {
+                    width: 100%;
+                    text-align: right;
+
+                    svg {
+                        font-size: 27px;
+                        cursor: pointer;
+                        color: #002F34;
+                    }
+                }
+
+                .popup-top{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 10px 0;
+                    flex-flow: column;
+                    img{
+                        width: 9rem;
+                        margin-right:10px ;
+                    }
+                    h4 {
+                        font-size: 20px;
+                        padding: 20px 0 5px;
+                        margin: 0;
+                        font-weight: 400;
+                        color: #002f34c2;
+                        text-align: center;
+                    }
+                    h5 {
+                        font-size: 18px;
+                        text-align: center;
+                        line-height: 37px;
+                        font-weight: 400;
+                        color: #002f34c2;
+                    }
+                }
+                .popup-center{
+                    ul.auth-list {
+                        padding: 0;
+                        width: 70%;
+                        margin: 0 auto;
+                        li{
+                            margin: 0 0 14px;
+                            border: 3px solid;
+                            padding: 10px 18px;
+                            border-radius: 4px;
+                            color: #002F34;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            button{
+                                width: 100%;
+                                display: flex;
+                                /* justify-content: space-evenly; */
+                                align-items: center;
+                                font-size: 16px;
+                                color: #002F34;
+                                font-weight: 500;
+                               
+                                    svg {
+                                        font-size: 22px;
+                                        margin: 0 35px 0 0;
+                                    }
+                                
+                                
+                            }
+                        }
+                        }
+                    }
+                    .popup-bottom {
+                        p {
+                            width: 100%;
+                            text-align: center;
+                            font-size: 12px;
+                            white-space: pre-line;
+                            color: #8d8d8d;
+                            line-height: 20px;
+                        }
+                    }
+                }
+            }
+   
+
