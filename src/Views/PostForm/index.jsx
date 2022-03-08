@@ -32,16 +32,20 @@ const PostForm =  () => {
     evt.persist();
     let file = evt.target.files[0];   
     let reader = new FileReader();
+   
+  try{
+    const imgUrl = await uploadImageToStorage(file)
+   
+    setPostDetails({...postDetails,[evt.target.name]:imgUrl})
+
     reader.onload = () =>{
-      if(reader.readyState === 2){
+      if(reader.readyState === 2 && imgUrl !== "" ){
         setUploadImagePreview({...uploadImgPreview,[`uploadImg${idx}`]: reader.result})
       }
     }
 
     reader.readAsDataURL(file)
-  try{
-    const imgUrl = await uploadImageToStorage(file)
-    setPostDetails({...postDetails,[evt.target.name]:imgUrl})
+    
   
   }
   catch(e){

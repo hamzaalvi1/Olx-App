@@ -1,24 +1,23 @@
 
 import './App.scss';
-import Header from "./Components/Header"
-import Footer from "./Components/Footer"
+import {BrowserRouter as Router} from "react-router-dom"
 import RouteConfig from './Components/RouteConfig';
-import {useLocation} from "react-router-dom"
+import {GlobalProvider} from "./Context"
+
 
 
 
 
 function App() {
-  const location = useLocation()
-  return (
-    <div className="App">
-     
-     <Header/>
-     <RouteConfig/>
-     {location.pathname  === "/post" || location.pathname === "/attributes"  ? null : <Footer/>}
 
-    
+  return (
+    <GlobalProvider>
+     <Router> 
+    <div className="App">
+     <RouteConfig/>
     </div>
+    </Router>
+    </GlobalProvider>
   );
 }
 

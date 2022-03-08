@@ -1,20 +1,26 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import "./header.scss"
 import { Container,Row,Col } from 'react-bootstrap';
 import Logo from "../../assets/images/logo.png"
 import PostLogo from "../../assets/images/post-logo.svg"
-
 import {FiSearch} from 'react-icons/fi';
 import {BsPlusLg} from 'react-icons/bs';
 import {MdOutlineArrowForwardIos} from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useNavigate,useLocation } from 'react-router-dom';
 import {VscArrowLeft} from "react-icons/vsc"
+import { GlobalContext } from '../../Context';
 
 
 const Header = () => {
     const navigate = useNavigate()
     const location = useLocation()
+    const {setSignUpModalOpen} = useContext(GlobalContext)
+    
+    const onloginPopup = ()=>{
+        setSignUpModalOpen(true)
+        document.querySelector("body").style.overflowY = "hidden"
+    }
 
     const checkSubMenu = 
   (location.pathname === "/post" || location.pathname === "/attributes"  ? 
@@ -65,7 +71,7 @@ const Header = () => {
                        </Col> 
                        <Col md={2}>
                            <div className="header-btn">
-                              <button>
+                              <button onClick={onloginPopup}>
                                   Login
                               </button>
                               <button className="sellButton" onClick={()=>navigate("/post")}>

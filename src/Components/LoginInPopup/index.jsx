@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import "./login.scss"
 import popupLogo from "../../assets/images/popup-logo.svg"
 import {VscChromeClose} from "react-icons/vsc"
@@ -6,11 +6,18 @@ import {FcGoogle} from "react-icons/fc"
 import {BsFacebook} from "react-icons/bs"
 import {MdEmail} from "react-icons/md"
 import {HiPhone} from "react-icons/hi"
+import { GlobalContext } from '../../Context'
 const LoginPopup = () => {
+  const glblContext = useContext(GlobalContext)
+  const {signUpModalOpen,setSignUpModalOpen} = glblContext
+  const closePopup = ()=>{
+    setSignUpModalOpen(false)
+    document.querySelector("body").style.overflowY = "auto"
+  }
   return (
-    <div className='popup'>
+   signUpModalOpen &&  <div className='popup' onClick={closePopup}>
       <div className="popupbox">
-      <div className="close-ico">
+      <div className="close-ico" onClick={closePopup}>
             <VscChromeClose/> 
         </div>  
         <div className="popup-top">
@@ -57,7 +64,7 @@ const LoginPopup = () => {
 
       </div>
  
-    </div>
+    </div> 
   )
 }
 
