@@ -4,25 +4,35 @@ import {Container,Row,Col} from "react-bootstrap"
 import AdImage from '../../assets/images/cat-image.jpg'
 import {BsHeart} from "react-icons/bs"
 import {useNavigate} from "react-router-dom"
-import {getAds} from "../Config/firebase"
+// import {getAds} from "../Config/firebase"
+import { useSelector,useDispatch } from 'react-redux'
+import {adsInitiate} from "../../Store/Actions"
+
+
 
 
 const Ads = () => {
     const navigate = useNavigate()
-    const [ads, setAds] = useState([])
+    
 
-       
+    const adsState = useSelector(state => state.Ads)
+     
+   
+    const dispatch = useDispatch()
+    useEffect(()=>{
+      dispatch(adsInitiate())
+    },[])
   
-    useEffect(async () => {
-        const tempAds = await getAds()
-        setAds(tempAds)
-      }, [])
+    // useEffect(async () => {
+    //     const tempAds = await getAds()
+    //     setAds(tempAds)
+    //   }, [])
   return (
     <div className='ads'>
      <Container>
          <Row className="align-items-center">
              <h2>Fresh Recomandations</h2>
-              {ads.map((ad,index)=>{
+              {adsState.ads.map((ad,index)=>{
                   return(
                 <Col md={3}  key={ad.id}> 
                 <div className="adbox" onClick={()=> navigate(`/item/${ad.id}`)}>

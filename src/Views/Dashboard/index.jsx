@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import CategoryDetails from "../../Components/CategoryDetail"
 import Ads from "../../Components/Ads"
 import Popup from "../../Components/LoginInPopup"
@@ -6,6 +6,9 @@ import Popup from "../../Components/LoginInPopup"
 
 
 const Home = () => {
+ 
+
+ 
   return (
     <div className='dashboard'>
      <Popup/>

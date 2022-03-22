@@ -67,4 +67,4 @@ async function uploadImageToStorage(file) {
   return await getDownloadURL(response.ref)
 }
 
-export {setPostForm,getAds,getSingleAd,uploadImageToStorage}
+export {setPostForm,getAds,getSingleAd,uploadImageToStorage,db}
